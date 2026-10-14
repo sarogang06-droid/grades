@@ -2,22 +2,21 @@
 # subject marks (0-100). Raise ValueError for wrong
 # count or out-of-range marks, TypeError for non-
 # integers. Grade by average: O >= 90, A >= 80,
-# B >= 70, C >= 60, else F. 
-
+# B >= 70, C >= 60, else F.
 def calculate_grade(marks: list[int]) -> str:
     if not isinstance(marks, list):
         raise TypeError("Input must be a list")
 
     if len(marks) != 5:
-        raise ValueError("Exactly 5 marks are required")
+        raise ValueError("Input must contain exactly 5 marks")
 
     for mark in marks:
         if not isinstance(mark, int):
             raise TypeError("All marks must be integers")
-        if not 0 <= mark <= 100:
+        if mark < 0 or mark > 100:
             raise ValueError("Marks must be between 0 and 100")
 
-    average = sum(marks) / 5
+    average = sum(marks) / len(marks)
 
     if average >= 90:
         return "O"
@@ -29,6 +28,19 @@ def calculate_grade(marks: list[int]) -> str:
         return "C"
     else:
         return "F"
+
+
+
+
+
+
+
+
+
+
+
+#  
+
 
 
 
