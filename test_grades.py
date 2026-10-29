@@ -39,6 +39,8 @@ def test_calculate_grade_for_each_grade(marks, expected):
         ([101, 90, 90, 90, 90], ValueError),
         ([90, 90, 90, 90, 90.5], TypeError),
         ([90, 90, 90, 90, "90"], TypeError),
+        ([True, 90, 90, 90, 90], TypeError),
+        ([False, 90, 90, 90, 90], TypeError),
     ],
 )
 def test_calculate_grade_rejects_invalid_inputs(marks, exception):
